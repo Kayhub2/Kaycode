@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URBAN REAL-TIME TRAFFIC TRACKER</title>
+    <style>
+        /* Fullscreen map styling */
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        /* Optional: Add a search bar or any other UI */
+        #controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 5;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+        .dark-mode #controls {
+            background: #444;
+        }
+        /* Chatbot styling */
+        #chatbot {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 300px;
+            height: 400px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        #chatbot-messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        #chatbot-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+        #chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+        #chatbot-input button {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <input type="text" id="location" placeholder="Enter location">
+        <button onclick="setLocation()">Set Location</button>
+        <button onclick="getUserLocation()">Use My Location</button>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+    <div id="map"></div>
+    <div id="chatbot">
+        <div id="chatbot-messages"></div>
+        <div id="chatbot-input">
+            <input type="text" id="chatbot-input-field" placeholder="Ask me anything...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <!-- Load the TomTom Maps JavaScript SDK -->
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.16.0/maps/maps-web.min.js"></script>
+    <script src="testnow.js"></script>
+</body>
+</html>
